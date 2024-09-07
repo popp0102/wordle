@@ -50,5 +50,23 @@ describe('useWordle', () => {
       expect(result.current.didPlayerWin).toBe(false);
     });
   });
+
+  describe('player loses', () => {
+    it('should set gameOver and didPlayerWin correctly', () => {
+      const { result, rerender } = subject();
+
+      for(let i = 0; i < 8; i++) {
+        ['a','b','c','d','e','f','Enter'].forEach((key) => {
+          act(() => {
+            result.current.keyPushed({ key: key });
+            rerender();
+          });
+        });
+      }
+
+      expect(result.current.didPlayerWin).toBe(false);
+      expect(result.current.gameOver).toBe(true);
+    });
+  });
 });
 
