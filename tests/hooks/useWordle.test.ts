@@ -35,5 +35,20 @@ describe('useWordle', () => {
       expect(result.current.didPlayerWin).toBe(true);
     });
   });
+
+  describe('delete some characters and submit incorrect word', () => {
+    it('should set the player win if they guess correctly', () => {
+      const { result, rerender } = subject();
+
+      ['d','Backspace','a','b','c','d','e','f','Enter'].forEach((key) => {
+        act(() => {
+          result.current.keyPushed({ key: key });
+          rerender();
+        });
+      });
+
+      expect(result.current.didPlayerWin).toBe(false);
+    });
+  });
 });
 
