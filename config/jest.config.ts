@@ -5,7 +5,7 @@ const config: Config.InitialOptions = {
   roots: [path.resolve(__dirname, '../tests')],
   rootDir: path.resolve(__dirname, '../'),
   testEnvironment: 'jsdom',
-  testMatch: ["<rootDir>/tests/**/*.test.tsx"],
+  testMatch: ["<rootDir>/tests/**/*.test.(tsx|ts)"],
   transform: {
     '^.+\\.tsx?$': ['ts-jest', {
       tsconfig: path.resolve(__dirname, './tsconfig.json'),
