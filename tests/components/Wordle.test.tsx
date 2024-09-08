@@ -6,7 +6,8 @@ import Wordle from '../../lib/components/Wordle';
 
 
 describe('Wordle Component', () => {
-  const subject = () => render(<Wordle />, {});
+  const solution = "dreams";
+  const subject  = () => { render(<Wordle solution={solution} />, {}) };
 
   it('does not throw an error', () => {
     expect(subject).not.toThrow();
