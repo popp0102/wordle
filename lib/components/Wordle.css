@@ -1,0 +1,133 @@
+.wordle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.wordle-yellow {
+  --tile-background: var(--cosmic-yellow);
+  animation: flip 0.5s ease forwards;
+}
+
+.wordle-green {
+  --tile-background: green;
+  animation: flip 0.5s ease forwards;
+}
+
+.wordle-gray {
+  --tile-background: var(--cosmic-black);
+  animation: flip 0.5s ease forwards;
+}
+
+.wordle-board {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  .wordle-row {
+    display: flex;
+    gap: 0.2rem;
+
+    .wordle-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid black;
+      font-weight: bold;
+    }
+
+    .wordle-white {
+      color: black;
+    }
+  }
+}
+
+.wordle-keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: center;
+  color: white;
+
+  .wordle-keyboard__row {
+    display: flex;
+    gap: 0.25rem;
+    color: black;
+
+    .wordle-keyboard__key {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 2rem;
+      border: 2px solid black;
+      border-radius: 5px;
+      padding: 0.5rem;
+      background: var(--cosmic-gray);
+    }
+    .wordle-keyboard__key__green {
+      background: green;
+    }
+    .wordle-keyboard__key__yellow {
+      background: var(--cosmic-yellow);
+    }
+    .wordle-keyboard__key__gray {
+      background: var(--cosmic-black);
+    }
+
+    .wordle-keyboard__big_key {
+      width: 3rem;
+    }
+  }
+}
+
+.wordle-row > .wordle-tile:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.wordle-row > .wordle-tile:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.wordle-row > .wordle-tile:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.wordle-row > .wordle-tile:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.wordle-row > .wordle-tile:nth-child(5) {
+  animation-delay: 1.0s;
+}
+.wordle-row > .wordle-tile:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+    background: transparent;
+    color: black;
+  }
+  50% {
+    transform: rotateX(90deg);
+    background: var(--tile-background);
+    color: black;
+  }
+  100% {
+    transform: rotateX(0deg);
+    background: var(--tile-background);
+    color: white;
+  }
+}

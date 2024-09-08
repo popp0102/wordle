@@ -1,3 +1,4 @@
+import './Wordle.css';
 import Row from './Row';
 
 const WORD_LENGTH = 6;

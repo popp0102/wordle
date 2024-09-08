@@ -1,3 +1,5 @@
+import './Wordle.css';
+
 export type KeyboardButton = {
   letter: string;
   color?: string;

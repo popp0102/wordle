@@ -5,7 +5,7 @@ import Wordle from '../lib/index';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Wordle />
+    <Wordle solution="dreams"/>
   </StrictMode>,
 )
 

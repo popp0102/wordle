@@ -4,6 +4,8 @@ import { useWordle } from '../hooks/useWordle';
 import Board from './Board';
 import Keyboard from './Keyboard';
 
+import './Wordle.css';
+
 type WordleProps = {
   solution: string;
   onGameFinish: (didWin: boolean) => void;

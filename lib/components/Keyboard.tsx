@@ -1,4 +1,5 @@
 import KeyboardRow, { type KeyboardButton } from './KeyboardRow';
+import './Wordle.css';
 
 type HistoryEntry = {
   key: string;
