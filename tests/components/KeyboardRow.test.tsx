@@ -7,12 +7,12 @@ import KeyboardRow from '../../lib/components/KeyboardRow';
 
 describe('Wordle Component', () => {
   const buttons = [
-    { letter: 'd',     color: 'green' },
-    { letter: 'r',     color: 'green' },
-    { letter: 'e',     color: 'green' },
-    { letter: 'a',     color: 'green' },
-    { letter: 'm',     color: 'green' },
-    { letter: 's',     color: 'green' },
+    { letter: 'D',     color: 'green' },
+    { letter: 'R',     color: 'green' },
+    { letter: 'E',     color: 'green' },
+    { letter: 'A',     color: 'green' },
+    { letter: 'M',     color: 'green' },
+    { letter: 'S',     color: 'green' },
     { letter: 'Enter', value: "Enter" }
   ];
   const onPush = (_: {key: string}) => {};

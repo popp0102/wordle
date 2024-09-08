@@ -3,7 +3,7 @@ import useWordle from '../../lib/hooks/useWordle';
 
 describe('useWordle', () => {
   const solution  = 'dreams'
-  const onGameEnd = jest.fn();
+  const onGameEnd: jest.MockedFunction<(didWin: boolean) => void> = jest.fn();
   const subject   = () => { return renderHook(() => useWordle(solution, onGameEnd)) };
 
   it('does not throw an error', () => {

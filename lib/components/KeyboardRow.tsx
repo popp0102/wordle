@@ -23,7 +23,9 @@ export default function KeyboardRow({ buttons, onPush }: KeyboardRowProps) {
           }
 
           return (
-            <div key={letter} onClick={() => onPush({key: pushValue})} className={classNames}>{letter}</div>
+            <div data-testid={`wordle-keyboard-key-${letter}`} key={letter} onClick={onPush.bind(null, {key: pushValue})} className={classNames}>
+              {letter}
+            </div>
           );
         })
       }

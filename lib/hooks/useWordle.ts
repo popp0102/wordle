@@ -8,7 +8,7 @@ type HistoryEntry = {
   color: string;
 }[];
 
-export default function useWordle(solution: string, onGameEnd: () => void) {
+export default function useWordle(solution: string, onGameEnd: (didWin: boolean) => void) {
   const [currentGuess, setCurrentGuess] = useState('');
   const [history, setHistory]           = useState<HistoryEntry[]>([]);
   const [didPlayerWin, setDidPlayerWin] = useState(false);
@@ -57,7 +57,7 @@ export default function useWordle(solution: string, onGameEnd: () => void) {
       setDidPlayerWin(didWin);
 
       if (history.length === (TURN_LENGTH - 1) || didWin) {
-        onGameEnd();
+        onGameEnd(didWin);
         setGameOver(true);
       }
     }

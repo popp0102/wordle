@@ -6,15 +6,12 @@ import Keyboard from './Keyboard';
 
 type WordleProps = {
   solution: string;
+  onGameFinish: (didWin: boolean) => void;
 };
 
-export default function Wordle({ solution }: WordleProps) {
-  function handleGameEnd() {
-    setOpenModal(true);
-  }
-
-  function handleClose() {
-    setOpenModal(false);
+export default function Wordle({ solution, onGameFinish }: WordleProps) {
+  function handleGameEnd(didWin: boolean) {
+    onGameFinish(didWin);
   }
 
   const { currentGuess, keyPushed, history, didPlayerWin, gameOver } = useWordle(solution, handleGameEnd);
