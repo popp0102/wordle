@@ -6,7 +6,7 @@
 }
 
 .wordle-yellow {
-  --tile-background: var(--cosmic-yellow);
+  --tile-background: yellow;
   animation: flip 0.5s ease forwards;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .wordle-gray {
-  --tile-background: var(--cosmic-black);
+  --tile-background: gray;
   animation: flip 0.5s ease forwards;
 }
 
@@ -65,16 +65,16 @@
       border: 2px solid black;
       border-radius: 5px;
       padding: 0.5rem;
-      background: var(--cosmic-gray);
+      background: gray;
     }
     .wordle-keyboard__key__green {
       background: green;
     }
     .wordle-keyboard__key__yellow {
-      background: var(--cosmic-yellow);
+      background: yellow;
     }
     .wordle-keyboard__key__gray {
-      background: var(--cosmic-black);
+      background: gray;
     }
 
     .wordle-keyboard__big_key {
@@ -128,6 +128,6 @@
   100% {
     transform: rotateX(0deg);
     background: var(--tile-background);
-    color: white;
+    color: black;
   }
 }
