@@ -1,13 +1,9 @@
 import './Wordle.css';
 import Row from './Row';
+import { type HistoryEntry, guessToHistoryEntry } from '../util/HistoryEntry';
 
 const WORD_LENGTH = 6;
 const TURN_LENGTH = 8;
-
-type HistoryEntry = {
-  key: string;
-  color: string;
-}[];
 
 type BoardProps = {
   history: HistoryEntry[];
@@ -15,20 +11,14 @@ type BoardProps = {
 };
 
 export default function Board({ history, currentGuess }: BoardProps) {
-  function stringToEntry(str: string) {
-    const chars = [...str, ...Array(WORD_LENGTH - str.length)];
-    const entry = chars.map((char) => ( { key: char || '', color: 'white' } ));
-    return entry;
-  }
-
   const turn = history.length;
   const turnsLeft = TURN_LENGTH - turn;
   let emptyEntries: HistoryEntry[] = []
   let guessEntry: HistoryEntry[] = [];
 
   if (turnsLeft > 0) {
-    emptyEntries = [...Array(turnsLeft - 1)].map(() => stringToEntry(''));
-    guessEntry = [stringToEntry(currentGuess)];
+    emptyEntries = [...Array(turnsLeft - 1)].map(() => guessToHistoryEntry('', WORD_LENGTH));
+    guessEntry = [guessToHistoryEntry(currentGuess, WORD_LENGTH)];
   }
 
   let board = [...history, ...guessEntry, ...emptyEntries];

@@ -1,7 +1,4 @@
-type HistoryEntry = {
-  key: string;
-  color: string;
-}[];
+import { type HistoryEntry } from '../util/HistoryEntry';
 
 type RowProps = {
   entry: HistoryEntry;
