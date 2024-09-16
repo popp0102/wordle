@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { type HistoryEntry, transformToHistoryEntry, isHistoryEntryCorrect } from '../util/HistoryEntry';
 
-const WORD_LENGTH = 6;
 const TURN_LENGTH = 8;
 
 export default function useWordle(solution: string, onGameEnd: (didWin: boolean) => void) {
@@ -11,17 +10,17 @@ export default function useWordle(solution: string, onGameEnd: (didWin: boolean)
   const [gameOver, setGameOver]         = useState(false);
 
   function keyPushed({ key }: { key: string }) {
-    if (currentGuess.length < WORD_LENGTH && /^[a-zA-Z]$/.test(key)) {
+    if (currentGuess.length < solution.length && /^[a-zA-Z]$/.test(key)) {
       setCurrentGuess((prevGuess) => prevGuess + key.toUpperCase());
     } else if(key === 'Backspace') {
       setCurrentGuess((prevGuess) => prevGuess.slice(0, -1));
-    } else if(key === 'Enter' && currentGuess.length === WORD_LENGTH && history.length < TURN_LENGTH ) {
+    } else if(key === 'Enter' && currentGuess.length === solution.length && history.length < TURN_LENGTH ) {
       const historyEntry = transformToHistoryEntry(currentGuess, solution);
 
       setHistory((prevHistory) => [...prevHistory, historyEntry]);
       setCurrentGuess('');
 
-      const didWin = isHistoryEntryCorrect(historyEntry, WORD_LENGTH);
+      const didWin = isHistoryEntryCorrect(historyEntry, solution.length);
       setDidPlayerWin(didWin);
 
       if (history.length === (TURN_LENGTH - 1) || didWin) {

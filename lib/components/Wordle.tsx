@@ -6,6 +6,8 @@ import Keyboard from './Keyboard';
 
 import './Wordle.css';
 
+const TURN_LENGTH = 8;
+
 type WordleProps = {
   solution: string;
   onGameFinish: (didWin: boolean) => void;
@@ -28,7 +30,7 @@ export default function Wordle({ solution, onGameFinish }: WordleProps) {
 
   return (
     <div className="wordle">
-      <Board history={history} currentGuess={currentGuess} />
+      <Board history={history} currentGuess={currentGuess} wordLength={solution.length} />
       <Keyboard history={history} onPush={keyPushed} gameOver={gameOver} />
     </div>
   );
