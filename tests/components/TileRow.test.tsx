@@ -2,9 +2,9 @@ import { render } from '@testing-library/react';
 
 import '@testing-library/jest-dom';
 
-import Row from '../../lib/components/Row';
+import TileRow from '../../lib/components/TileRow';
 
-describe('Row Component', () => {
+describe('TileRow Component', () => {
   const entry = [
     { key: 'D',     color: 'green' },
     { key: 'R',     color: 'green' },
@@ -13,7 +13,7 @@ describe('Row Component', () => {
     { key: 'M',     color: 'green' },
     { key: 'S',     color: 'green' },
   ];
-  const subject = () => { render(<Row entry={entry} />, {}) };
+  const subject = () => { render(<TileRow entry={entry} />, {}) };
 
   it('does not throw an error', () => {
     expect(subject).not.toThrow();

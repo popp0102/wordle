@@ -1,5 +1,5 @@
 import './Wordle.css';
-import Row from './Row';
+import TileRow from './TileRow';
 import { type HistoryEntry, guessToHistoryEntry } from '../util/HistoryEntry';
 
 const WORD_LENGTH = 6;
@@ -28,7 +28,7 @@ export default function Board({ history, currentGuess }: BoardProps) {
       {
         board.map((entry, index) => {
           return (
-            <Row key={index} entry={entry} />
+            <TileRow key={index} entry={entry} />
           )
         })
       }

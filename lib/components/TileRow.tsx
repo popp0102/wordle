@@ -4,7 +4,7 @@ type RowProps = {
   entry: HistoryEntry;
 }
 
-export default function Row({ entry }: RowProps) {
+export default function TileRow({ entry }: RowProps) {
   return (
     <div className="wordle-row">
       <div className={`wordle-tile wordle-${entry[0].color}`}>
