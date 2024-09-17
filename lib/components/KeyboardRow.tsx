@@ -2,8 +2,8 @@ import './Wordle.css';
 
 export type KeyboardButton = {
   letter: string;
-  color?: string;
-  value?: string;
+  color: string;
+  type: string;
 };
 
 type KeyboardRowProps = {
@@ -18,14 +18,20 @@ export default function KeyboardRow({ buttons, onPush }: KeyboardRowProps) {
         buttons.map((button) => {
           const letter   = button.letter;
           const color    = button.color;
-          let pushValue  = button.value || letter;
-          let classNames = `wordle-keyboard__key wordle-keyboard__key__${color}`;
-          if (button.value) {
+          let classNames = `wordle-keyboard__key`;
+
+          if (button.type === 'Big') {
             classNames += ' wordle-keyboard__big_key';
           }
 
           return (
-            <div data-testid={`wordle-keyboard-key-${letter}`} key={letter} onClick={onPush.bind(null, {key: pushValue})} className={classNames}>
+            <div
+                data-testid={`wordle-keyboard-key-${letter}`}
+                key={letter}
+                onClick={onPush.bind(null, {key: letter})}
+                className={classNames}
+                style={{backgroundColor: color}}
+            >
               {letter}
             </div>
           );

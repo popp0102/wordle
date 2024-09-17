@@ -15,7 +15,7 @@ export default function Keyboard({ history, onPush, disable }: KeyboardProps) {
   let bottomRow = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
 
   function findColor(letter: string) {
-    let color = 'transparent';
+    let color = 'gainsboro';
 
     history.forEach((historyEntry) => {
       historyEntry.forEach((entry) => {
@@ -34,10 +34,12 @@ export default function Keyboard({ history, onPush, disable }: KeyboardProps) {
     return color;
   }
 
-  let topButtons: KeyboardButton[]    = topRow.map((letter)    => ({ letter: letter, color: findColor(letter) }));
-  let middleEntries: KeyboardButton[] = middleRow.map((letter) => ({ letter: letter, color: findColor(letter) }));
-  let bottomEntries: KeyboardButton[] = bottomRow.map((letter) => ({ letter: letter, color: findColor(letter) }));
-  bottomEntries = [{letter: 'ENT', value: 'Enter'}, ...bottomEntries, {letter: 'DEL', value: 'Backspace'}];
+  let topButtons:    KeyboardButton[] = topRow.map((letter)    => ({ letter: letter, type: 'key', color: findColor(letter) }));
+  let middleEntries: KeyboardButton[] = middleRow.map((letter) => ({ letter: letter, type: 'key', color: findColor(letter) }));
+  let bottomEntries: KeyboardButton[] = bottomRow.map((letter) => ({ letter: letter, type: 'key', color: findColor(letter) }));
+  let deleteKey = { letter: 'Backspace', type: 'Big', color: 'gainsboro' }
+  let enterKey  = { letter: 'Enter',     type: 'Big', color: 'gainsboro' }
+  bottomEntries = [enterKey, ...bottomEntries, deleteKey];
 
   const onPushHandler = disable ? ()=>{} : onPush;
   return (

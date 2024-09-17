@@ -67,18 +67,9 @@
       padding: 0.5rem;
       background: gray;
     }
-    .wordle-keyboard__key__green {
-      background: green;
-    }
-    .wordle-keyboard__key__yellow {
-      background: yellow;
-    }
-    .wordle-keyboard__key__gray {
-      background: gray;
-    }
 
     .wordle-keyboard__big_key {
-      width: 3rem;
+      width: 4rem;
     }
   }
 }
