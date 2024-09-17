@@ -1,11 +1,7 @@
+import { type HistoryEntry } from '../util/HistoryEntry';
 import KeyboardRow, { type KeyboardButton } from './KeyboardRow';
-import './Wordle.css';
 
-type HistoryEntry = {
-  key: string;
-  color: string;
-  value?: string;
-}[];
+import './Wordle.css';
 
 type KeyboardProps = {
   history: HistoryEntry[];
@@ -38,7 +34,7 @@ export default function Keyboard({ history, onPush, disable }: KeyboardProps) {
     return color;
   }
 
-  let topButtons: KeyboardButton[] = topRow.map((letter)    => ({ letter: letter, color: findColor(letter) }));
+  let topButtons: KeyboardButton[]    = topRow.map((letter)    => ({ letter: letter, color: findColor(letter) }));
   let middleEntries: KeyboardButton[] = middleRow.map((letter) => ({ letter: letter, color: findColor(letter) }));
   let bottomEntries: KeyboardButton[] = bottomRow.map((letter) => ({ letter: letter, color: findColor(letter) }));
   bottomEntries = [{letter: 'ENT', value: 'Enter'}, ...bottomEntries, {letter: 'DEL', value: 'Backspace'}];
