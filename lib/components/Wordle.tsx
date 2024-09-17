@@ -30,7 +30,7 @@ export default function Wordle({ solution, onGameFinish, totalTurns }: WordlePro
   return (
     <div className="wordle">
       <Board history={history} currentGuess={currentGuess} wordLength={solution.length} totalTurns={totalTurns} />
-      <Keyboard history={history} onPush={keyPushed} gameOver={gameOver} />
+      <Keyboard history={history} onPush={keyPushed} disable={gameOver} />
     </div>
   );
 }

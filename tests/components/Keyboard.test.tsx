@@ -24,19 +24,19 @@ describe('Wordle Component', () => {
       { key: 'S', color: 'green' },
     ]
   ];
-  const gameOver = false;
-  const onPush   = (_: {key: string}) => {};
-  const subject  = (gameOver: boolean) => { render(<Keyboard history={history} onPush={onPush} gameOver={gameOver}/>, {}) };
+  const disable = false;
+  const onPush  = (_: {key: string}) => {};
+  const subject = (disable: boolean) => { render(<Keyboard history={history} onPush={onPush} disable={disable}/>, {}) };
 
   it('does not throw an error', () => {
     expect(() => { subject(false) }).not.toThrow();
   });
 
-  describe('on game over', () => {
-    const gameOver = true;
+  describe('disable the keyboard', () => {
+    const disable = true;
 
     it('does not throw an error', () => {
-      expect(() => { subject(gameOver) }).not.toThrow();
+      expect(() => { subject(disable) }).not.toThrow();
     });
   });
 });
