@@ -14,7 +14,7 @@ describe('Board Component', () => {
     { key: 'm', color: 'green' },
   ]];
   const currentGuess = 'dreams';
-  const subject  = () => { render(<Board history={history} currentGuess={currentGuess} wordLength={6}/>, {}) };
+  const subject  = () => { render(<Board history={history} currentGuess={currentGuess} wordLength={6} totalTurns={8}/>, {}) };
 
   it('does not throw an error', () => {
     expect(subject).not.toThrow();

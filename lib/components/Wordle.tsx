@@ -6,19 +6,18 @@ import Keyboard from './Keyboard';
 
 import './Wordle.css';
 
-const TURN_LENGTH = 8;
-
 type WordleProps = {
   solution: string;
   onGameFinish: (didWin: boolean) => void;
+  totalTurns: number;
 };
 
-export default function Wordle({ solution, onGameFinish }: WordleProps) {
+export default function Wordle({ solution, onGameFinish, totalTurns }: WordleProps) {
   function handleGameEnd(didWin: boolean) {
     onGameFinish(didWin);
   }
 
-  const { currentGuess, keyPushed, history, didPlayerWin, gameOver } = useWordle(solution, handleGameEnd);
+  const { currentGuess, keyPushed, history, didPlayerWin, gameOver } = useWordle(solution, totalTurns, handleGameEnd);
   const [ openModal, setOpenModal ] = useState(false);
 
   useEffect(() => {
@@ -30,7 +29,7 @@ export default function Wordle({ solution, onGameFinish }: WordleProps) {
 
   return (
     <div className="wordle">
-      <Board history={history} currentGuess={currentGuess} wordLength={solution.length} />
+      <Board history={history} currentGuess={currentGuess} wordLength={solution.length} totalTurns={totalTurns} />
       <Keyboard history={history} onPush={keyPushed} gameOver={gameOver} />
     </div>
   );

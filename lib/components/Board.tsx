@@ -2,17 +2,16 @@ import './Wordle.css';
 import TileRow from './TileRow';
 import { type HistoryEntry, guessToHistoryEntry } from '../util/HistoryEntry';
 
-const TURN_LENGTH = 8;
-
 type BoardProps = {
   history: HistoryEntry[];
   currentGuess: string;
   wordLength: number;
+  totalTurns: number;
 };
 
-export default function Board({ history, currentGuess, wordLength }: BoardProps) {
+export default function Board({ history, currentGuess, wordLength, totalTurns }: BoardProps) {
   const turn = history.length;
-  const turnsLeft = TURN_LENGTH - turn;
+  const turnsLeft = totalTurns - turn;
   let emptyEntries: HistoryEntry[] = []
   let guessEntry: HistoryEntry[] = [];
 

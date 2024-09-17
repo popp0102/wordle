@@ -8,7 +8,7 @@ describe('Wordle Component', () => {
 
   describe('player wins', () => {
     const onGameFinish: jest.MockedFunction<(didWin: boolean) => void> = jest.fn();
-    const subject = () => { render(<Wordle solution={solution} onGameFinish={onGameFinish} />, {}) };
+    const subject = () => { render(<Wordle solution={solution} onGameFinish={onGameFinish} totalTurns={8} />, {}) };
 
     it('by pushing keys from a real keyboard', async () => {
       subject();
@@ -38,7 +38,7 @@ describe('Wordle Component', () => {
 
   describe('player loses', () => {
     const onGameFinish: jest.MockedFunction<(didWin: boolean) => void> = jest.fn();
-    const subject = () => { render(<Wordle solution={solution} onGameFinish={onGameFinish} />, {}) };
+    const subject = () => { render(<Wordle solution={solution} onGameFinish={onGameFinish} totalTurns={8} />, {}) };
 
     it('should lose after running out of tries', async () => {
       subject();

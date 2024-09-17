@@ -2,9 +2,10 @@ import { renderHook, act } from '@testing-library/react';
 import useWordle from '../../lib/hooks/useWordle';
 
 describe('useWordle', () => {
-  const solution  = 'dreams'
   const onGameEnd: jest.MockedFunction<(didWin: boolean) => void> = jest.fn();
-  const subject   = () => { return renderHook(() => useWordle(solution, onGameEnd)) };
+  const solution   = 'dreams'
+  const totalTurns = 8;
+  const subject    = () => { return renderHook(() => useWordle(solution, totalTurns, onGameEnd)) };
 
   it('does not throw an error', () => {
     const { result } = subject();

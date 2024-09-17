@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { type HistoryEntry, transformToHistoryEntry, isHistoryEntryCorrect } from '../util/HistoryEntry';
 
-const TURN_LENGTH = 8;
 
-export default function useWordle(solution: string, onGameEnd: (didWin: boolean) => void) {
+export default function useWordle(solution: string, totalTurns: number, onGameEnd: (didWin: boolean) => void) {
   const [currentGuess, setCurrentGuess] = useState('');
   const [history, setHistory]           = useState<HistoryEntry[]>([]);
   const [didPlayerWin, setDidPlayerWin] = useState(false);
@@ -14,7 +13,7 @@ export default function useWordle(solution: string, onGameEnd: (didWin: boolean)
       setCurrentGuess((prevGuess) => prevGuess + key.toUpperCase());
     } else if(key === 'Backspace') {
       setCurrentGuess((prevGuess) => prevGuess.slice(0, -1));
-    } else if(key === 'Enter' && currentGuess.length === solution.length && history.length < TURN_LENGTH ) {
+    } else if(key === 'Enter' && currentGuess.length === solution.length && history.length < totalTurns ) {
       const historyEntry = transformToHistoryEntry(currentGuess, solution);
 
       setHistory((prevHistory) => [...prevHistory, historyEntry]);
@@ -23,7 +22,7 @@ export default function useWordle(solution: string, onGameEnd: (didWin: boolean)
       const didWin = isHistoryEntryCorrect(historyEntry, solution.length);
       setDidPlayerWin(didWin);
 
-      if (history.length === (TURN_LENGTH - 1) || didWin) {
+      if (history.length === (totalTurns - 1) || didWin) {
         onGameEnd(didWin);
         setGameOver(true);
       }
