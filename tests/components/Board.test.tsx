@@ -6,12 +6,12 @@ import Board from '../../lib/components/Board';
 
 describe('Board Component', () => {
   const history = [[
-    { key: 'd', color: 'green' },
-    { key: 'r', color: 'green' },
-    { key: 'e', color: 'green' },
-    { key: 'a', color: 'green' },
-    { key: 'm', color: 'green' },
-    { key: 'm', color: 'green' },
+    { key: 'd', status: 'right' },
+    { key: 'r', status: 'right' },
+    { key: 'e', status: 'right' },
+    { key: 'a', status: 'right' },
+    { key: 'm', status: 'right' },
+    { key: 's', status: 'right' },
   ]];
   const currentGuess = 'dreams';
   const subject  = () => { render(<Board history={history} currentGuess={currentGuess} wordLength={6} totalTurns={8}/>, {}) };

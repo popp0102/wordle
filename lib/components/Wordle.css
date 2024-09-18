@@ -5,19 +5,8 @@
   gap: 2rem;
 }
 
-.wordle-yellow {
-  --tile-background: yellow;
-  animation: flip 0.5s ease forwards;
-}
-
-.wordle-green {
-  --tile-background: green;
-  animation: flip 0.5s ease forwards;
-}
-
-.wordle-gray {
-  --tile-background: gray;
-  animation: flip 0.5s ease forwards;
+.wordle-flip {
+  animation: flip 0.75s linear forwards;
 }
 
 .wordle-board {
@@ -92,6 +81,18 @@
 .wordle-row > .wordle-tile:nth-child(6) {
   animation-delay: 1.2s;
 }
+.wordle-row > .wordle-tile:nth-child(7) {
+  animation-delay: 1.4s;
+}
+.wordle-row > .wordle-tile:nth-child(8) {
+  animation-delay: 1.6s;
+}
+.wordle-row > .wordle-tile:nth-child(9) {
+  animation-delay: 1.8s;
+}
+.wordle-row > .wordle-tile:nth-child(10) {
+  animation-delay: 2.0s;
+}
 
 @keyframes bounce {
   0% {
@@ -113,7 +114,7 @@
   }
   50% {
     transform: rotateX(90deg);
-    background: var(--tile-background);
+    background: transparent;
     color: black;
   }
   100% {

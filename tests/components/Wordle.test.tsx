@@ -25,7 +25,7 @@ describe('Wordle Component', () => {
     it('by pushing buttons with the on-screen keyboard', async () => {
       subject();
 
-      ['D', 'R', 'E', 'A', 'M', 'S', 'ENT'].forEach((key) => {
+      ['D', 'R', 'E', 'A', 'M', 'S', 'Enter'].forEach((key) => {
         const letterButton = screen.getByTestId(`wordle-keyboard-key-${key}`);
         userEvent.click(letterButton);
       });

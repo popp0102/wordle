@@ -20,7 +20,7 @@ export default function KeyboardRow({ buttons, onPush }: KeyboardRowProps) {
           const color    = button.color;
           let classNames = `wordle-keyboard__key`;
 
-          if (button.type === 'Big') {
+          if (button.type === 'special') {
             classNames += ' wordle-keyboard__big_key';
           }
 

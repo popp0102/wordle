@@ -8,20 +8,20 @@ import Keyboard from '../../lib/components/Keyboard';
 describe('Wordle Component', () => {
   const history = [
     [
-      { key: 'A', color: 'yellow' },
-      { key: 'B', color: 'gray' },
-      { key: 'D', color: 'yellow' },
-      { key: 'E', color: 'yellow' },
-      { key: 'M', color: 'yellow' },
-      { key: 'A', color: 'gray' },
+      { key: 'A', status: 'almost' },
+      { key: 'B', status: 'wrong' },
+      { key: 'D', status: 'almost' },
+      { key: 'E', status: 'almost' },
+      { key: 'M', status: 'almost' },
+      { key: 'A', status: 'wrong' },
     ],
     [
-      { key: 'D', color: 'green' },
-      { key: 'R', color: 'green' },
-      { key: 'E', color: 'green' },
-      { key: 'A', color: 'green' },
-      { key: 'M', color: 'green' },
-      { key: 'S', color: 'green' },
+      { key: 'D', status: 'right' },
+      { key: 'R', status: 'right' },
+      { key: 'E', status: 'right' },
+      { key: 'A', status: 'right' },
+      { key: 'M', status: 'right' },
+      { key: 'S', status: 'right' },
     ]
   ];
   const disable = false;
