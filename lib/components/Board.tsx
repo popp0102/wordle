@@ -7,9 +7,10 @@ type BoardProps = {
   currentGuess: string;
   wordLength: number;
   totalTurns: number;
+  colorConfig: { [ key: string]: string };
 };
 
-export default function Board({ history, currentGuess, wordLength, totalTurns }: BoardProps) {
+export default function Board({ history, currentGuess, wordLength, totalTurns, colorConfig }: BoardProps) {
   const turn = history.length;
   const turnsLeft = totalTurns - turn;
   let emptyEntries: HistoryEntry[] = []
@@ -27,7 +28,7 @@ export default function Board({ history, currentGuess, wordLength, totalTurns }:
       {
         board.map((entry, index) => {
           return (
-            <TileRow key={index} entry={entry} />
+            <TileRow key={index} entry={entry} colorConfig={colorConfig} />
           )
         })
       }

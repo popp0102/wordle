@@ -10,9 +10,18 @@ type WordleProps = {
   solution: string;
   onGameFinish: (didWin: boolean) => void;
   totalTurns: number;
+  colorConfig?: { [ key: string]: string };
 };
 
-export default function Wordle({ solution, onGameFinish, totalTurns }: WordleProps) {
+const DEFAULT_COLOR_CONFIG: { [ key: string]: string } = {
+  right: 'green',
+  almost: 'yellow',
+  wrong: 'gray',
+  neutral: 'gainsboro',
+  tile: 'white',
+}
+
+export default function Wordle({ solution, onGameFinish, totalTurns, colorConfig=DEFAULT_COLOR_CONFIG }: WordleProps) {
   function handleGameEnd(didWin: boolean) {
     onGameFinish(didWin);
   }
@@ -29,8 +38,8 @@ export default function Wordle({ solution, onGameFinish, totalTurns }: WordlePro
 
   return (
     <div className="wordle">
-      <Board history={history} currentGuess={currentGuess} wordLength={solution.length} totalTurns={totalTurns} />
-      <Keyboard history={history} onPush={keyPushed} disable={gameOver} />
+      <Board history={history} currentGuess={currentGuess} wordLength={solution.length} totalTurns={totalTurns} colorConfig={colorConfig}/>
+      <Keyboard history={history} onPush={keyPushed} disable={gameOver} colorConfig={colorConfig} />
     </div>
   );
 }

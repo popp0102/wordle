@@ -6,7 +6,7 @@
 }
 
 .wordle-flip {
-  animation: flip 0.75s linear forwards;
+  animation: flip 0.5s linear forwards;
 }
 
 .wordle-board {
