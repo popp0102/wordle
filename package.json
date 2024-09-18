@@ -1,6 +1,6 @@
 {
   "name": "@popp0102/wordle",
-  "version": "0.9.3",
+  "version": "1.0.2",
   "main": "dist/wordle.js",
   "type": "module",
   "files": [
@@ -37,7 +37,8 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
-    "vite-plugin-dts": "^4.1.1"
+    "vite-plugin-dts": "^4.1.1",
+    "vite-plugin-libcss": "^1.1.1"
   },
   "peerDependencies": {
     "react": "^18.3.1",

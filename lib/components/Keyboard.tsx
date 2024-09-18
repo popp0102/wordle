@@ -23,8 +23,8 @@ export default function Keyboard({ history, onPush, disable, colorConfig }: Keyb
   let topButtons:    KeyboardButton[] = topRow.map((letter)    => ({ letter: letter, type: 'key', color: findColor(letter) }));
   let middleEntries: KeyboardButton[] = middleRow.map((letter) => ({ letter: letter, type: 'key', color: findColor(letter) }));
   let bottomEntries: KeyboardButton[] = bottomRow.map((letter) => ({ letter: letter, type: 'key', color: findColor(letter) }));
-  let deleteKey = { letter: 'Backspace', type: 'special', color: colorConfig["neutral"] }
-  let enterKey  = { letter: 'Enter',     type: 'special', color: colorConfig["neutral"] }
+  let deleteKey = { letter: 'Delete', type: 'Backspace', color: colorConfig["neutral"] }
+  let enterKey  = { letter: 'Enter',  type: 'Enter',     color: colorConfig["neutral"] }
   bottomEntries = [enterKey, ...bottomEntries, deleteKey];
 
   const onPushHandler = disable ? ()=>{} : onPush;

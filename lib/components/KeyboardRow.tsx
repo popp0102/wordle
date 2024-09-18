@@ -19,8 +19,9 @@ export default function KeyboardRow({ buttons, onPush }: KeyboardRowProps) {
           const letter   = button.letter;
           const color    = button.color;
           let classNames = `wordle-keyboard__key`;
+          let onPushKey  = (button.type === 'key') ? letter : button.type;
 
-          if (button.type === 'special') {
+          if (button.type !== 'key') {
             classNames += ' wordle-keyboard__big_key';
           }
 
@@ -28,7 +29,7 @@ export default function KeyboardRow({ buttons, onPush }: KeyboardRowProps) {
             <div
                 data-testid={`wordle-keyboard-key-${letter}`}
                 key={letter}
-                onClick={onPush.bind(null, {key: letter})}
+                onClick={onPush.bind(null, {key: onPushKey})}
                 className={classNames}
                 style={{backgroundColor: color}}
             >
