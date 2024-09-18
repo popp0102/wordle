@@ -1,6 +1,7 @@
-import './Wordle.css';
 import TileRow from './TileRow';
-import { type HistoryEntry, guessToHistoryEntry } from '../util/HistoryEntry';
+import { type HistoryEntry, guessToHistoryEntry } from '@util/HistoryEntry';
+
+import './Wordle.css';
 
 type BoardProps = {
   history: HistoryEntry[];

@@ -13,7 +13,7 @@ describe('TileRow Component', () => {
     { key: 'M', status: 'right' },
     { key: 'S', status: 'right' },
   ];
-  const subject = () => { render(<TileRow entry={entry} />, {}) };
+  const subject = () => { render(<TileRow entry={entry} colorConfig={{}} />, {}) };
 
   it('does not throw an error', () => {
     expect(subject).not.toThrow();

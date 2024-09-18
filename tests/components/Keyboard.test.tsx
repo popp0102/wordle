@@ -26,7 +26,7 @@ describe('Wordle Component', () => {
   ];
   const disable = false;
   const onPush  = (_: {key: string}) => {};
-  const subject = (disable: boolean) => { render(<Keyboard history={history} onPush={onPush} disable={disable}/>, {}) };
+  const subject = (disable: boolean) => { render(<Keyboard history={history} onPush={onPush} disable={disable} colorConfig={{}} />, {}) };
 
   it('does not throw an error', () => {
     expect(() => { subject(false) }).not.toThrow();

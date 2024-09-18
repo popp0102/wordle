@@ -1,4 +1,4 @@
-import { type HistoryEntry, getLetterStatus } from '../util/HistoryEntry';
+import { type HistoryEntry, getLetterStatus } from '@util/HistoryEntry';
 import KeyboardRow, { type KeyboardButton } from './KeyboardRow';
 
 import './Wordle.css';

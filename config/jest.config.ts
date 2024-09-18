@@ -14,7 +14,10 @@ const config: Config.InitialOptions = {
   setupFilesAfterEnv: [path.resolve(__dirname, '../tests/jest.setup.ts')],
   moduleNameMapper: {
     '^.+\\.(css|less)$': '<rootDir>/tests/__mocks__/CSS_Stub.ts',
+    '^@lib/(.*)$': '<rootDir>/lib/$1',
+    '^@util/(.*)$': '<rootDir>/lib/util/$1',
+    '^@components/(.*)$': '<rootDir>/lib/components/$1',
+    '^@hooks/(.*)$': '<rootDir>/lib/hooks/$1'
   },
 };
-
 export default config;

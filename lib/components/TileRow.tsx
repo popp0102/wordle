@@ -1,4 +1,4 @@
-import { type HistoryEntry } from '../util/HistoryEntry';
+import { type HistoryEntry } from '@util/HistoryEntry';
 
 type RowProps = {
   entry: HistoryEntry;

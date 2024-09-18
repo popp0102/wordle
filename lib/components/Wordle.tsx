@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useWordle } from '../hooks/useWordle';
+import { useWordle } from '@hooks/useWordle';
 import Board from './Board';
 import Keyboard from './Keyboard';
 
