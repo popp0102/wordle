@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { type HistoryEntry, transformToHistoryEntry, isHistoryEntryCorrect } from '../util/HistoryEntry';
 
-
 export default function useWordle(solution: string, totalTurns: number, onGameEnd: (didWin: boolean) => void) {
   const [currentGuess, setCurrentGuess] = useState('');
   const [history, setHistory]           = useState<HistoryEntry[]>([]);
