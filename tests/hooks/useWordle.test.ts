@@ -29,8 +29,8 @@ describe('useWordle', () => {
       ['d','r','e','a','m','s','Enter'].forEach((key) => {
         act(() => {
           result.current.keyPushed({ key: key });
-          rerender();
         });
+        rerender();
       });
 
       expect(result.current.didPlayerWin).toBe(true);
@@ -44,8 +44,8 @@ describe('useWordle', () => {
       ['d','Backspace','a','b','c','d','e','f','Enter'].forEach((key) => {
         act(() => {
           result.current.keyPushed({ key: key });
-          rerender();
         });
+        rerender();
       });
 
       expect(result.current.didPlayerWin).toBe(false);
@@ -60,8 +60,8 @@ describe('useWordle', () => {
         ['a','b','c','d','e','f','Enter'].forEach((key) => {
           act(() => {
             result.current.keyPushed({ key: key });
-            rerender();
           });
+          rerender();
         });
       }
 
